@@ -1,0 +1,91 @@
+* {
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13pt;
+  text-align: center;
+}
+
+.stim {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -270px;
+  margin-left: -250px;
+  display: none;
+}
+
+#feedback {
+  width: 500px;
+  height: 40px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: 230px;
+  margin-left: -250px;
+  font-size: 25pt;
+  display: none;
+}
+
+#textLeft {
+  float: left;
+  width: 30%;
+  text-align: left;
+}
+
+#textMiddle {
+  width: 60%;
+  text-align: center;
+  color: blue;
+}
+
+#textRight {
+  float: right;
+  width: 30%;
+  text-align: right;
+}
+
+.button {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  border: 2px solid #f1c40f;
+  border-radius: 1em;
+  text-align: center;
+  background: transparent;
+  color: #000000;
+  box-shadow: 0 5px 15px 5px grey;
+}
+
+.button:active {
+  box-shadow: 0 5px 15px 1px lightgrey;
+}
+
+.button:focus {
+  outline: none;
+}
+
+select {
+  font-size: 20pt;
+}
