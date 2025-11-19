@@ -112,7 +112,8 @@ export default defineInstrument({
     instructions: ['Instructions will be presented on screen in the task.']
   },
   details: {
-    description: '',
+    description:
+      'A cognitive test that assesses processing speed and attention by matching digit symbols according to a key.',
     license: 'LGPL-3.0',
     title: 'TMB Digit Symbol Matching'
   },

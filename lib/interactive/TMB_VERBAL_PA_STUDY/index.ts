@@ -142,7 +142,7 @@ export default defineInstrument({
     instructions: ['Instructions will be presented on screen in the task.']
   },
   details: {
-    description: '',
+    description: 'The encoding phase of a verbal memory test where participants learn word pairs for later recall.',
     license: 'LGPL-3.0',
     title: 'Verbal Paired Associates - Study'
   },

@@ -195,7 +195,8 @@ export default defineInstrument({
     instructions: ['Instructions will be presented on screen in the task.']
   },
   details: {
-    description: '',
+    description:
+      'A test that measures the ability to recognize and identify different emotional expressions in facial images.',
     license: 'LGPL-3.0',
     title: 'TMB Emotion Recognition'
   },

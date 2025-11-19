@@ -533,7 +533,8 @@ export default defineInstrument({
     instructions: ['Instructions will be presented on screen in the task.']
   },
   details: {
-    description: '',
+    description:
+      'A nonverbal reasoning test that assesses abstract problem-solving abilities using visual pattern matrices.',
     license: 'LGPL-3.0',
     title: 'TMB Matrix Reasoning'
   },
