@@ -47,7 +47,7 @@ export default defineInstrument({
   },
   clientDetails: {
     estimatedDuration: 1,
-    instructions: ['<PLACEHOLDER>']
+    instructions: ['Instructions will be presented on screen in the task.']
   },
   details: {
     description: '',
