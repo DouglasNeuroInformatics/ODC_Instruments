@@ -60,7 +60,8 @@ export default defineInstrument({
     instructions: ['Instructions will be presented on screen in the task.']
   },
   details: {
-    description: '',
+    description:
+      'A task switching test that evaluates cognitive flexibility by alternating between letter and number categorization.',
     license: 'LGPL-3.0',
     title: 'Letter/Number Switching'
   },

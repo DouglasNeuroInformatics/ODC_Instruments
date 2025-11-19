@@ -50,7 +50,7 @@ export default defineInstrument({
     instructions: ['Instructions will be presented on screen in the task.']
   },
   details: {
-    description: '',
+    description: 'An attention task that measures the ability to track multiple moving objects simultaneously.',
     license: 'LGPL-3.0',
     title: 'TMB Multiple Object Tracking'
   },

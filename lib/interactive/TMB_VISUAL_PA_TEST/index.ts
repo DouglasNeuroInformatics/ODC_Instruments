@@ -342,7 +342,7 @@ export default defineInstrument({
     instructions: ['Instructions will be presented on screen in the task.']
   },
   details: {
-    description: '',
+    description: 'The recall phase of a visual memory test where participants retrieve previously learned image pairs.',
     license: 'LGPL-3.0',
     title: 'Visual Paired Associates - Test'
   },

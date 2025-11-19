@@ -43,7 +43,7 @@ export default defineInstrument({
     instructions: ['Instructions will be presented on screen in the task.']
   },
   details: {
-    description: '',
+    description: 'A simple reaction time test that measures how quickly participants respond to visual stimuli.',
     license: 'LGPL-3.0',
     title: 'Fast Reactions'
   },
