@@ -10,5 +10,5 @@
     },
     "types": ["@opendatacapture/runtime-v1/env"]
   },
-  "include": ["lib"]
+  "include": ["lib/**/*"]
 }
