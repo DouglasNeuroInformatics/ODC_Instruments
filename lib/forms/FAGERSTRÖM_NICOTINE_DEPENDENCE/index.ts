@@ -4,12 +4,12 @@ import { z } from '/runtime/v1/zod@3.x';
 
 const yesNoOptions = {
   en: {
-    1: 'Yes',
-    0: 'No'
+    '-1': 'Yes',
+    '0': 'No'
   },
   fr: {
-    1: 'Oui',
-    0: 'Non'
+    '-1': 'Oui',
+    '0': 'Non'
   }
 };
 
@@ -51,16 +51,16 @@ export default defineInstrument({
       },
       options: {
         en: {
-          3: 'Within 5 minutes',
-          2: '6-30 minutes',
-          1: '31-60 minutes',
-          0: 'More than 60 minutes'
+          '-3': 'Within 5 minutes',
+          '-2': '6-30 minutes',
+          '-1': '31-60 minutes',
+          '0': 'More than 60 minutes'
         },
         fr: {
-          3: 'Dans les 5 minutes',
-          2: '6 à 30 minutes',
-          1: '31 à 60 minutes ',
-          0: 'Plus de 60 minutes'
+          '-3': 'Dans les 5 minutes',
+          '-2': '6 à 30 minutes',
+          '-1': '31 à 60 minutes ',
+          '0': 'Plus de 60 minutes'
         }
       },
       variant: 'radio'
@@ -84,12 +84,12 @@ export default defineInstrument({
       },
       options: {
         en: {
-          1: 'The first in the morning',
-          0: 'Any other'
+          '-1': 'The first in the morning',
+          '0': 'Any other'
         },
         fr: {
-          1: 'La première du matin',
-          0: 'À une autre'
+          '-1': 'La première du matin',
+          '0': 'À une autre'
         }
       },
       variant: 'radio'
@@ -98,21 +98,21 @@ export default defineInstrument({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
-        en: '4. How many cigarettes a do you smoke?',
+        en: '4. How many cigarettes a do you smoke per day?',
         fr: '4. Combien de cigarettes fumez-vous par jour?'
       },
       options: {
         en: {
-          0: '10 or less',
-          1: '11 - 20',
-          2: '21 - 30',
-          3: '31 or more'
+          '0': '10 or less',
+          '1': '11 - 20',
+          '2': '21 - 30',
+          '3': '31 or more'
         },
         fr: {
-          0: '10 ou moins',
-          1: '11 à 20',
-          2: '21 à 30',
-          3: '31 ou plus 3'
+          '0': '10 ou moins',
+          '1': '11 à 20',
+          '2': '21 à 30',
+          '3': '31 ou plus 3'
         }
       },
       variant: 'radio'
@@ -146,16 +146,17 @@ export default defineInstrument({
         fr: 'Score total:'
       },
       value: (data) => {
-        return sum(Object.values(data));
+        const { cigaretteAmount, ...rest } = data;
+        return sum(Object.values(rest).map((v) => v * -1)) + (cigaretteAmount ?? 0);
       }
     }
   },
   validationSchema: z.object({
-    smokeTime: z.number().int().min(0).max(3),
-    difficultToRefrainSmoking: z.number().int().min(0).max(1),
-    cigaretteHateToGiveup: z.number().int().min(0).max(1),
+    smokeTime: z.number().int().min(-3).max(0),
+    difficultToRefrainSmoking: z.number().int().min(-1).max(0),
+    cigaretteHateToGiveup: z.number().int().min(-1).max(0),
     cigaretteAmount: z.number().int().min(0).max(3),
-    smokeMoreInMorning: z.number().int().min(0).max(1),
-    smokeWhileSickInBed: z.number().int().min(0).max(1)
+    smokeMoreInMorning: z.number().int().min(-1).max(0),
+    smokeWhileSickInBed: z.number().int().min(-1).max(0)
   })
 });
