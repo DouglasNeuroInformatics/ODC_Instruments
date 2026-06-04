@@ -59,7 +59,7 @@ export default defineInstrument({
         fr: {
           '-3': 'Dans les 5 minutes',
           '-2': '6 à 30 minutes',
-          '-1': '31 à 60 minutes ',
+          '-1': '31 à 60 minutes',
           '0': 'Plus de 60 minutes'
         }
       },
@@ -98,7 +98,7 @@ export default defineInstrument({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
-        en: '4. How many cigarettes a do you smoke per day?',
+        en: '4. How many cigarettes do you smoke per day?',
         fr: '4. Combien de cigarettes fumez-vous par jour?'
       },
       options: {
@@ -112,7 +112,7 @@ export default defineInstrument({
           '0': '10 ou moins',
           '1': '11 à 20',
           '2': '21 à 30',
-          '3': '31 ou plus 3'
+          '3': '31 ou plus'
         }
       },
       variant: 'radio'
