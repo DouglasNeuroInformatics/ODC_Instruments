@@ -139,7 +139,7 @@ export default defineInstrument({
     }
   },
   measures: {
-    auditCScore: {
+    nicotineDependenceScore: {
       kind: 'computed',
       label: {
         en: 'Total Score:',
