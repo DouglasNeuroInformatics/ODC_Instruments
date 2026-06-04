@@ -145,10 +145,7 @@ export default defineInstrument({
         en: 'Total Score:',
         fr: 'Score total:'
       },
-      value: (data) => {
-        const { cigaretteAmount, ...rest } = data;
-        return sum(Object.values(rest).map((v) => v * -1)) + (cigaretteAmount ?? 0);
-      }
+      value: (data) => sum(Object.values(data).map((v) => Math.abs(v ?? 0)))
     }
   },
   validationSchema: z.object({
