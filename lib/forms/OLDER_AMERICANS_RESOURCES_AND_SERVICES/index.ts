@@ -151,7 +151,7 @@ export default defineInstrument({
       kind: 'string',
       variant: 'radio',
       label: {
-        en: 'Is there someone who would give you any help at all if you were sick or disabled, for example, your husband or wife, a member of your family or a friend?',
+        en: 'Is there someone who would give you any help at all if you were sick or disabled, for example, your husband or wife, a member of your family, or friend?',
         fr: "Y a-t-il quelqu'un qui vous donnerait une aide quelconque si vous étiez malade ou infirme, par exemple votre époux(se), un membre de la famille ou un(e) ami(e)?"
       },
       options: {
