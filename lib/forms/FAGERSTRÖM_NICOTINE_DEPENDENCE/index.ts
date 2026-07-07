@@ -13,6 +13,19 @@ const yesNoOptions = {
   }
 };
 
+function createDependentField<const T>(field: T) {
+  return {
+    kind: 'dynamic' as const,
+    deps: ['smokes'] as const,
+    render: (data: { smokes?: unknown }) => {
+      if (data.smokes === true) {
+        return field;
+      }
+      return null;
+    }
+  };
+}
+
 export default defineInstrument({
   kind: 'FORM',
   language: ['en', 'fr'],
@@ -42,7 +55,25 @@ export default defineInstrument({
   },
 
   content: {
-    smokeTime: {
+    smokes: {
+      kind: 'boolean',
+      label: {
+        en: 'Do you smoke?',
+        fr: 'Fumez-vous?'
+      },
+      options: {
+        en: {
+          true: 'Yes',
+          false: 'No'
+        },
+        fr: {
+          true: 'Oui',
+          false: 'Non'
+        }
+      },
+      variant: 'radio'
+    },
+    smokeTime: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -64,8 +95,8 @@ export default defineInstrument({
         }
       },
       variant: 'radio'
-    },
-    difficultToRefrainSmoking: {
+    }),
+    difficultToRefrainSmoking: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -74,8 +105,8 @@ export default defineInstrument({
       },
       options: yesNoOptions,
       variant: 'radio'
-    },
-    cigaretteHateToGiveup: {
+    }),
+    cigaretteHateToGiveup: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -93,8 +124,8 @@ export default defineInstrument({
         }
       },
       variant: 'radio'
-    },
-    cigaretteAmount: {
+    }),
+    cigaretteAmount: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -116,8 +147,8 @@ export default defineInstrument({
         }
       },
       variant: 'radio'
-    },
-    smokeMoreInMorning: {
+    }),
+    smokeMoreInMorning: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -126,8 +157,8 @@ export default defineInstrument({
       },
       options: yesNoOptions,
       variant: 'radio'
-    },
-    smokeWhileSickInBed: {
+    }),
+    smokeWhileSickInBed: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -136,7 +167,7 @@ export default defineInstrument({
       },
       options: yesNoOptions,
       variant: 'radio'
-    }
+    })
   },
   measures: {
     nicotineDependenceScore: {
@@ -145,15 +176,32 @@ export default defineInstrument({
         en: 'Total Score:',
         fr: 'Score total:'
       },
-      value: (data) => sum(Object.values(data).map((v) => Math.abs(v ?? 0)))
+      value: (data) => {
+        if (!data.smokes) {
+          return 0;
+        }
+        return sum(
+          Object.values(data)
+            .filter((v): v is number => typeof v === 'number')
+            .map((v) => Math.abs(v))
+        );
+      }
     }
   },
-  validationSchema: z.object({
-    smokeTime: z.number().int().min(-3).max(0),
-    difficultToRefrainSmoking: z.number().int().min(-1).max(0),
-    cigaretteHateToGiveup: z.number().int().min(-1).max(0),
-    cigaretteAmount: z.number().int().min(0).max(3),
-    smokeMoreInMorning: z.number().int().min(-1).max(0),
-    smokeWhileSickInBed: z.number().int().min(-1).max(0)
-  })
+  validationSchema: z
+    .object({
+      smokes: z.boolean(),
+      smokeTime: z.number().int().min(-3).max(0).optional(),
+      difficultToRefrainSmoking: z.number().int().min(-1).max(0).optional(),
+      cigaretteHateToGiveup: z.number().int().min(-1).max(0).optional(),
+      cigaretteAmount: z.number().int().min(0).max(3).optional(),
+      smokeMoreInMorning: z.number().int().min(-1).max(0).optional(),
+      smokeWhileSickInBed: z.number().int().min(-1).max(0).optional()
+    })
+    .refine(({ smokes, ...data }) => {
+      if (!smokes) {
+        return true;
+      }
+      return Object.values(data).length === 6 && Object.values(data).every((arg) => typeof arg === 'number');
+    }, 'Error: Please fill out all the questions / Erreur: Veuillez répondre à toutes les questions')
 });
