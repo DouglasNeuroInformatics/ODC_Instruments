@@ -184,7 +184,7 @@ export default defineInstrument({
     fr: ['TestMyBrain']
   },
   internal: {
-    edition: 2,
+    edition: 3,
     name: 'TMB_VISUAL_PA_STUDY'
   },
   content: {
@@ -362,7 +362,10 @@ export default defineInstrument({
     }
   },
   measures: {},
-  validationSchema: z.object({
-    message: z.string()
-  })
+  validationSchema: z.array(
+    z.object({
+      probe: z.string(),
+      target: z.string()
+    })
+  )
 });
