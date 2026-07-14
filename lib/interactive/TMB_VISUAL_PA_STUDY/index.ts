@@ -362,7 +362,10 @@ export default defineInstrument({
     }
   },
   measures: {},
-  validationSchema: z.object({
-    message: z.string()
-  })
+  validationSchema: z.array(
+    z.object({
+      probe: z.string(),
+      target: z.string()
+    })
+  )
 });
