@@ -94,8 +94,8 @@ export default defineInstrument({
     },
     estimatedDuration: 1,
     instructions: {
-      en: ['This is a self-rated instrument, please answer all questions.'],
-      fr: ["Il s'agit d'un instrument d'auto-évaluation, veuillez répondre à toutes les questions."]
+      en: ['Follow the instructions on the next page'],
+      fr: ['Suivez les instructions de la page suivante']
     },
     license: 'CC-BY-4.0',
     referenceUrl: 'http://www.hcp.med.harvard.edu/ncs/asrs.php',
@@ -105,7 +105,7 @@ export default defineInstrument({
     }
   },
   internal: {
-    edition: 1,
+    edition: 2,
     name: 'ADHD_ASRS_1.1'
   },
   kind: 'FORM',

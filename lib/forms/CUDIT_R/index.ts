@@ -55,14 +55,14 @@ export default defineInstrument({
     fr: ['Cannabis', 'Dépendance', 'Abus de substance']
   },
   internal: {
-    edition: 1,
+    edition: 2,
     name: 'CUDIT_R'
   },
   clientDetails: {
     estimatedDuration: 10,
     instructions: {
-      en: ['Please fill out answer that best describe your cannabis usage.'],
-      fr: ['Veuillez remplir les réponses qui décrivent le mieux votre consommation de cannabis']
+      en: ['Follow the instructions on the next page'],
+      fr: ['Suivez les instructions de la page suivante']
     },
     title: {
       en: 'Cannabis Use Identification Test - Revised (CUDIT-R)',
