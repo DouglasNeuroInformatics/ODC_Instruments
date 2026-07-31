@@ -4,14 +4,27 @@ import { z } from '/runtime/v1/zod@3.x';
 
 const yesNoOptions = {
   en: {
-    1: 'Yes',
-    0: 'No'
+    '-1': 'Yes',
+    '0': 'No'
   },
   fr: {
-    1: 'Oui',
-    0: 'Non'
+    '-1': 'Oui',
+    '0': 'Non'
   }
 };
+
+function createDependentField<const T>(field: T) {
+  return {
+    kind: 'dynamic' as const,
+    deps: ['smokes'] as const,
+    render: (data: { smokes?: unknown }) => {
+      if (data.smokes === true) {
+        return field;
+      }
+      return null;
+    }
+  };
+}
 
 export default defineInstrument({
   kind: 'FORM',
@@ -42,7 +55,25 @@ export default defineInstrument({
   },
 
   content: {
-    smokeTime: {
+    smokes: {
+      kind: 'boolean',
+      label: {
+        en: 'Do you smoke?',
+        fr: 'Fumez-vous?'
+      },
+      options: {
+        en: {
+          true: 'Yes',
+          false: 'No'
+        },
+        fr: {
+          true: 'Oui',
+          false: 'Non'
+        }
+      },
+      variant: 'radio'
+    },
+    smokeTime: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -51,21 +82,21 @@ export default defineInstrument({
       },
       options: {
         en: {
-          3: 'Within 5 minutes',
-          2: '6-30 minutes',
-          1: '31-60 minutes',
-          0: 'More than 60 minutes'
+          '-3': 'Within 5 minutes',
+          '-2': '6-30 minutes',
+          '-1': '31-60 minutes',
+          '0': 'More than 60 minutes'
         },
         fr: {
-          3: 'Dans les 5 minutes',
-          2: '6 à 30 minutes',
-          1: '31 à 60 minutes ',
-          0: 'Plus de 60 minutes'
+          '-3': 'Dans les 5 minutes',
+          '-2': '6 à 30 minutes',
+          '-1': '31 à 60 minutes',
+          '0': 'Plus de 60 minutes'
         }
       },
       variant: 'radio'
-    },
-    difficultToRefrainSmoking: {
+    }),
+    difficultToRefrainSmoking: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -74,8 +105,8 @@ export default defineInstrument({
       },
       options: yesNoOptions,
       variant: 'radio'
-    },
-    cigaretteHateToGiveup: {
+    }),
+    cigaretteHateToGiveup: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -84,40 +115,40 @@ export default defineInstrument({
       },
       options: {
         en: {
-          1: 'The first in the morning',
-          0: 'Any other'
+          '-1': 'The first in the morning',
+          '0': 'Any other'
         },
         fr: {
-          1: 'La première du matin',
-          0: 'À une autre'
+          '-1': 'La première du matin',
+          '0': 'À une autre'
         }
       },
       variant: 'radio'
-    },
-    cigaretteAmount: {
+    }),
+    cigaretteAmount: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
-        en: '4. How many cigarettes a do you smoke?',
+        en: '4. How many cigarettes do you smoke per day?',
         fr: '4. Combien de cigarettes fumez-vous par jour?'
       },
       options: {
         en: {
-          0: '10 or less',
-          1: '11 - 20',
-          2: '21 - 30',
-          3: '31 or more'
+          '0': '10 or less',
+          '1': '11 - 20',
+          '2': '21 - 30',
+          '3': '31 or more'
         },
         fr: {
-          0: '10 ou moins',
-          1: '11 à 20',
-          2: '21 à 30',
-          3: '31 ou plus 3'
+          '0': '10 ou moins',
+          '1': '11 à 20',
+          '2': '21 à 30',
+          '3': '31 ou plus'
         }
       },
       variant: 'radio'
-    },
-    smokeMoreInMorning: {
+    }),
+    smokeMoreInMorning: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -126,8 +157,8 @@ export default defineInstrument({
       },
       options: yesNoOptions,
       variant: 'radio'
-    },
-    smokeWhileSickInBed: {
+    }),
+    smokeWhileSickInBed: createDependentField({
       disableAutoPrefix: true,
       kind: 'number',
       label: {
@@ -136,26 +167,41 @@ export default defineInstrument({
       },
       options: yesNoOptions,
       variant: 'radio'
-    }
+    })
   },
   measures: {
-    auditCScore: {
+    nicotineDependenceScore: {
       kind: 'computed',
       label: {
         en: 'Total Score:',
         fr: 'Score total:'
       },
       value: (data) => {
-        return sum(Object.values(data));
+        if (!data.smokes) {
+          return 0;
+        }
+        return sum(
+          Object.values(data)
+            .filter((v): v is number => typeof v === 'number')
+            .map((v) => Math.abs(v))
+        );
       }
     }
   },
-  validationSchema: z.object({
-    smokeTime: z.number().int().min(0).max(3),
-    difficultToRefrainSmoking: z.number().int().min(0).max(1),
-    cigaretteHateToGiveup: z.number().int().min(0).max(1),
-    cigaretteAmount: z.number().int().min(0).max(3),
-    smokeMoreInMorning: z.number().int().min(0).max(1),
-    smokeWhileSickInBed: z.number().int().min(0).max(1)
-  })
+  validationSchema: z
+    .object({
+      smokes: z.boolean(),
+      smokeTime: z.number().int().min(-3).max(0).optional(),
+      difficultToRefrainSmoking: z.number().int().min(-1).max(0).optional(),
+      cigaretteHateToGiveup: z.number().int().min(-1).max(0).optional(),
+      cigaretteAmount: z.number().int().min(0).max(3).optional(),
+      smokeMoreInMorning: z.number().int().min(-1).max(0).optional(),
+      smokeWhileSickInBed: z.number().int().min(-1).max(0).optional()
+    })
+    .refine(({ smokes, ...data }) => {
+      if (!smokes) {
+        return true;
+      }
+      return Object.values(data).length === 6 && Object.values(data).every((arg) => typeof arg === 'number');
+    }, 'Error: Please fill out all the questions / Erreur: Veuillez répondre à toutes les questions')
 });
