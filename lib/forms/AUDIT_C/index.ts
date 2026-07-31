@@ -6,7 +6,7 @@ export default defineInstrument({
   language: ['en', 'fr'],
   internal: {
     name: 'AUDIT_C',
-    edition: 1
+    edition: 2
   },
   tags: {
     en: ['Alcohol', 'Health', 'Disorder'],
@@ -25,8 +25,8 @@ export default defineInstrument({
     },
     estimatedDuration: 2,
     instructions: {
-      en: ['Please respond to every question'],
-      fr: ['Veuillez répondre à toutes les questions']
+      en: ['Follow the instructions on the next page'],
+      fr: ['Suivez les instructions de la page suivante']
     },
     license: 'PUBLIC-DOMAIN',
     title: {
@@ -176,4 +176,3 @@ export default defineInstrument({
       }
     })
 });
-

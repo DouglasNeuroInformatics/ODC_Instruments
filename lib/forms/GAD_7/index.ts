@@ -39,8 +39,8 @@ export default defineInstrument({
     },
     estimatedDuration: 1,
     instructions: {
-      en: ['Please complete all questions'],
-      fr: ['Veuillez répondre à toutes les questions']
+      en: ['Follow the instructions on the next page'],
+      fr: ['Suivez les instructions de la page suivante']
     },
     license: 'PUBLIC-DOMAIN'
   },
@@ -52,7 +52,7 @@ export default defineInstrument({
   },
   internal: {
     name: 'GAD_7',
-    edition: 1
+    edition: 2
   },
   content: [
     {

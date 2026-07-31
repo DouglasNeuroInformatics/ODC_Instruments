@@ -38,7 +38,7 @@ export default defineInstrument({
   language: ['en', 'fr'],
   internal: {
     name: 'TEN_ITEM_PERSONALITY_INVENTORY',
-    edition: 1
+    edition: 2
   },
   tags: {
     en: [
@@ -60,8 +60,8 @@ export default defineInstrument({
     },
     estimatedDuration: 5,
     instructions: {
-      en: ['Please respond to every question'],
-      fr: ['Veuillez répondre à toutes les questions']
+      en: ['Follow the instructions on the next page'],
+      fr: ['Suivez les instructions de la page suivante']
     },
     license: 'FREE-NOS',
     title: {
