@@ -31,7 +31,7 @@ export default defineInstrument({
   language: ['en', 'fr'],
   internal: {
     name: 'FAGERSTRÖM_NICOTINE_DEPENDENCE',
-    edition: 2
+    edition: 3
   },
   tags: {
     en: ['smoking', 'addiction', 'nicotine'],
