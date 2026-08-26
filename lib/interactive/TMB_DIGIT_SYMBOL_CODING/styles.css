@@ -1,0 +1,138 @@
+* {
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13pt;
+  text-align: center;
+}
+
+/* height is left to the content, so the task stays centred whether or not
+   the response buttons are shown */
+
+#container {
+  width: 520px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.button {
+  border: 2px solid #f1c40f;
+  border-radius: 1em;
+  background: transparent;
+  color: #000000;
+  box-shadow: 0 5px 15px 5px grey;
+}
+
+.button:active {
+  box-shadow: 0 5px 15px 1px lightgrey;
+}
+
+.button:focus {
+  outline: none;
+}
+
+/* the symbol to respond to */
+
+#probeRow {
+  height: 108px;
+}
+
+#probe {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 4px 0;
+}
+
+/* the key: nine symbols in a row, each over its digit.
+   built from spans rather than divs, because showFrame() toggles the
+   display of every div in the document, including inside alert screens */
+
+#keyRow {
+  margin-top: 6px;
+}
+
+.key {
+  display: inline-grid;
+  grid-template-columns: repeat(9, 54px);
+  grid-template-rows: 56px 44px;
+}
+
+.key--small {
+  grid-template-columns: repeat(9, 40px);
+  grid-template-rows: 42px 34px;
+}
+
+.keyCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+.keyCell:nth-child(-n + 9) {
+  border-top: 1px solid #000000;
+}
+
+.keyCell:nth-child(9n + 1) {
+  border-left: 1px solid #000000;
+}
+
+.keyCell img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* the digit chosen by the participant, shown briefly under the key.
+   the row keeps its height at all times, so the layout never shifts */
+
+#feedbackRow {
+  height: 72px;
+  margin-top: 12px;
+}
+
+#feedback {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  visibility: hidden;
+}
+
+/* response buttons, shown only when responding by touch */
+
+#response {
+  margin-top: 4px;
+}
+
+.respButton {
+  display: inline-block;
+  width: 76px;
+  height: 76px;
+  margin: 0 14px;
+  padding: 6px;
+  border: 2px solid #cccccc;
+  border-radius: 8px;
+}
