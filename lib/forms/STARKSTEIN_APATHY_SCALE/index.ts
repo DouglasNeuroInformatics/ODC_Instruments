@@ -11,7 +11,7 @@ const fieldOptionsLikertScale = {
   },
   fr: {
     0: 'Pas du tout',
-    1: 'Un peut',
+    1: 'Un peu',
     2: 'Assez',
     3: 'Beaucoup'
   }
@@ -59,158 +59,157 @@ export default defineInstrument({
   },
   content: [
     {
-    description: {
-      en:'For each question, choose the answer that best describes your thoughts, feelings, and behaviors in the last 4 weeks.',
-      fr:'Pour chaque question, choisissez la réponse qui décrit le mieux vos pensées, sentiments et comportements au cours des 4 dernières semaines.'
-    },
-    fields: {
-       interestedInLearningNewThings: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Are you interested in learning new things?',
-        fr: 'Êtes-vous intéressé à apprendre de nouvelles choses?'
+      description: {
+        en: 'For each question, choose the answer that best describes your thoughts, feelings, and behaviors in the last 4 weeks.',
+        fr: 'Pour chaque question, choisissez la réponse qui décrit le mieux vos pensées, sentiments et comportements au cours des 4 dernières semaines.'
       },
-      options: fieldOptionsLikertScale
-    },
-    anythingInterestsYou: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Does anything interest you?',
-        fr: "Est-ce qu'il y a des choses qui vous intéressent?"
-      },
-      options: fieldOptionsLikertScale
-    },
-    concernedAboutOwnCondition: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Are you concerned about your condition?',
-        fr: 'Êtes-vous préoccupé par votre état de santé ?'
-      },
-      options: fieldOptionsLikertScale
-    },
-    putMuchEffortIntoThings: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Do you put much effort into things?',
-        fr: "Est-ce que vous mettez beaucoup d'effort dans ce que vous faites?"
-      },
-      options: fieldOptionsLikertScale
-    },
-    alwaysLookForSomethingToDo: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Are you always looking for something to do?',
-        fr: "Vous êtes toujours à la recherche d'une activité ?"
-      },
-      options: fieldOptionsLikertScale
-    },
-    havePlanAndGoalsForFuture: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Do you have plans and goals for the future?',
-        fr: "Avez-vous des projets et des objectifs pour l'avenir ?"
-      },
-      options: fieldOptionsLikertScale
-    },
-    haveMotivation: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Do you have motivation?',
-        fr: 'Êtes-vous motivé (e)?'
-      },
-      options: fieldOptionsLikertScale
-    },
-    haveEnergyForDailyActivities: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Do you have the energy for daily activities?',
-        fr: "Avez-vous de l'énergie pour les activités quotidiennes? "
-      },
-      options: fieldOptionsLikertScale
-    },
-    needToTellYouWhatToDoEveryday: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Does someone have to tell you what to do each day?',
-        fr: "Est-ce que quelqu'un doit vous dire quoi faire à chaque jour? "
-      },
-      options: fieldOptionsLikertScale
-    },
-    indifferentToThings: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Are you indifferent to things?',
-        fr: 'Est-ce que les choses vous laissent indifférent(e)s? '
-      },
-      options: fieldOptionsLikertScale
-    },
-    unconcernedWithManyThings: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Are you unconcerned with many things?',
-        fr: 'Êtes-vous indifférent à beaucoup de choses ?'
-      },
-      options: fieldOptionsLikertScale
-    },
-    needPushToGetStarted: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Do you need a push to get started on things?',
-        fr: "Avez-vous besoin d'être poussé(e) pour commencer des choses? "
-      },
-      options: fieldOptionsLikertScale
-    },
-    notHappyOrSadJustNeutral: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Are you neither happy nor sad, just in between?',
-        fr: "Vous n'êtes ni heureux ni triste, mais entre les deux ?"
-      },
-      options: fieldOptionsLikertScale
-    },
-    areYouApathetic: {
-      kind: 'number',
-      variant: 'radio',
-      disableAutoPrefix: true,
-      label: {
-        en: 'Would you consider yourself apathetic?',
-        fr: 'Est-ce que vous vous considérez comme étant apathique?'
-      },
-      options: fieldOptionsLikertScale
+      fields: {
+        interestedInLearningNewThings: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Are you interested in learning new things?',
+            fr: 'Êtes-vous intéressé à apprendre de nouvelles choses?'
+          },
+          options: fieldOptionsLikertScale
+        },
+        anythingInterestsYou: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Does anything interest you?',
+            fr: "Est-ce qu'il y a des choses qui vous intéressent?"
+          },
+          options: fieldOptionsLikertScale
+        },
+        concernedAboutOwnCondition: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Are you concerned about your condition?',
+            fr: 'Êtes-vous préoccupé par votre état de santé ?'
+          },
+          options: fieldOptionsLikertScale
+        },
+        putMuchEffortIntoThings: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Do you put much effort into things?',
+            fr: "Est-ce que vous mettez beaucoup d'effort dans ce que vous faites?"
+          },
+          options: fieldOptionsLikertScale
+        },
+        alwaysLookForSomethingToDo: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Are you always looking for something to do?',
+            fr: "Vous êtes toujours à la recherche d'une activité ?"
+          },
+          options: fieldOptionsLikertScale
+        },
+        havePlanAndGoalsForFuture: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Do you have plans and goals for the future?',
+            fr: "Avez-vous des projets et des objectifs pour l'avenir ?"
+          },
+          options: fieldOptionsLikertScale
+        },
+        haveMotivation: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Do you have motivation?',
+            fr: 'Êtes-vous motivé (e)?'
+          },
+          options: fieldOptionsLikertScale
+        },
+        haveEnergyForDailyActivities: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Do you have the energy for daily activities?',
+            fr: "Avez-vous de l'énergie pour les activités quotidiennes? "
+          },
+          options: fieldOptionsLikertScale
+        },
+        needToTellYouWhatToDoEveryday: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Does someone have to tell you what to do each day?',
+            fr: "Est-ce que quelqu'un doit vous dire quoi faire à chaque jour? "
+          },
+          options: fieldOptionsLikertScale
+        },
+        indifferentToThings: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Are you indifferent to things?',
+            fr: 'Est-ce que les choses vous laissent indifférent(e)s? '
+          },
+          options: fieldOptionsLikertScale
+        },
+        unconcernedWithManyThings: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Are you unconcerned with many things?',
+            fr: 'Êtes-vous indifférent à beaucoup de choses ?'
+          },
+          options: fieldOptionsLikertScale
+        },
+        needPushToGetStarted: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Do you need a push to get started on things?',
+            fr: "Avez-vous besoin d'être poussé(e) pour commencer des choses? "
+          },
+          options: fieldOptionsLikertScale
+        },
+        notHappyOrSadJustNeutral: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Are you neither happy nor sad, just in between?',
+            fr: "Vous n'êtes ni heureux ni triste, mais entre les deux ?"
+          },
+          options: fieldOptionsLikertScale
+        },
+        areYouApathetic: {
+          kind: 'number',
+          variant: 'radio',
+          disableAutoPrefix: true,
+          label: {
+            en: 'Would you consider yourself apathetic?',
+            fr: 'Est-ce que vous vous considérez comme étant apathique?'
+          },
+          options: fieldOptionsLikertScale
+        }
+      }
     }
-    }
-   
-  },
   ],
   internal: {
     name: 'STARKSTEIN_APATHY_SCALE',
-    edition: 1
+    edition: 2
   },
   measures: {
     interestedInLearningNewThings: {
