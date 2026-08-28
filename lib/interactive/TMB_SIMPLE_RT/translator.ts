@@ -75,7 +75,7 @@ export const translator = new Translator({
       },
       useFinger: {
         en: 'Use a finger on your writing hand.',
-        fr: "Utilisez un doigt de votre main d'écriture."
+        fr: 'Appuyez avec un doigt de votre main dominante.'
       },
       excellent: {
         en: "Excellent!<br>You have completed the practice.<br><br>Now let's do more.",
