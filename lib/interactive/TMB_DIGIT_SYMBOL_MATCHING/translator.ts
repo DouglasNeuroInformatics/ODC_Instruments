@@ -79,23 +79,23 @@ export const translator = new Translator({
       },
       eachSymbol: {
         en: 'Each <b>symbol</b> has a <b>number</b>.',
-        fr: 'Chaque <b>symbole</b> a un <b>chiffre</b>.'
+        fr: 'Chaque <b>symbole</b> est associé à un <b>chiffre</b>.'
       },
       whenSymbolTaps: {
         en: 'When a symbol appears at the top,<br><b>touch</b> its number <b>on the screen</b>',
-        fr: "Lorsqu'un symbole apparaît en haut,<br><b>touchez</b> son chiffre <b>à l'écran</b>"
+        fr: "Lorsqu'un symbole apparaît en haut,<br><b>touchez</b> le <b>chiffre</b> qui correspond<br>à ce <b>symbole</b>"
       },
       whenSymbolKeys: {
         en: 'When a symbol appears at the top,<br>press its number on the <b>keyboard</b>',
-        fr: "Lorsqu'un symbole apparaît en haut,<br>appuyez sur son chiffre au <b>clavier</b>"
+        fr: "Lorsqu'un symbole apparaît en haut,<br>appuyez sur le <b>chiffre</b> qui correspond<br>à ce <b>symbole</b>"
       },
       hereItIs: {
         en: '(here it is 1).',
-        fr: "(ici c'est 1)."
+        fr: '(ici, la réponse est 1).'
       },
       letsPractice: {
         en: "Let's practice a few symbols.",
-        fr: 'Entraînons-nous sur quelques symboles.'
+        fr: 'Entraînons-nous avec quelques symboles.'
       },
       excellent: {
         en: 'Excellent!<br>You have completed the practice.<br>Now let’s do more.',
@@ -103,7 +103,7 @@ export const translator = new Translator({
       },
       scoreInfo: {
         en: 'Your score will be<br>how many correct responses<br>you make in {duration} seconds,<br>so try to be <b>ACCURATE</b> and <b>QUICK</b>!',
-        fr: 'Votre score correspondra<br>au nombre de bonnes réponses<br>que vous donnerez en {duration} secondes,<br>alors soyez <b>PRÉCIS</b> et <b>RAPIDE</b> !'
+        fr: 'Rappel !<br>Regardez le symbole en haut<br>et appuyez sur le chiffre qui correspond à ce symbole.<br>Essayez d’être <b>RAPIDE</b>, mais aussi <b>PRÉCIS</b>.'
       }
     }
   }

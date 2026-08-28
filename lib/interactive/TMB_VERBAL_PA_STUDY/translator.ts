@@ -41,7 +41,7 @@ export const translator = new Translator({
       },
       laterTested: {
         en: 'Later you will be tested on that!',
-        fr: 'Vous serez testé(e) là-dessus plus tard !'
+        fr: 'Vous serez testé(e) sur ces paires plus tard !'
       },
       end: {
         en: "You will be tested on these word pairs shortly.<br>But first, let's do some other tests!",

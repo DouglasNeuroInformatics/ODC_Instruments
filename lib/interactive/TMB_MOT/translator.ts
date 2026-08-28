@@ -71,7 +71,7 @@ export const translator = new Translator({
       },
       keepTrack: {
         en: 'Keep track of the dots that flash,<br>they have green smiles behind them.',
-        fr: 'Suivez les points qui clignotent,<br>ils ont un sourire vert derrière eux.'
+        fr: 'Suivez la position des points<br>avec un sourire vert qui clignotent.'
       },
       practiceClickTwo: {
         en: 'Next time, when the movement stops,<br>click the 2 dots that flashed.<br><br>The other dots have<br>red sad faces behind them.',
@@ -87,7 +87,7 @@ export const translator = new Translator({
       },
       targets3: {
         en: 'Great!<br><br>Now we’ll do 6 more with 3 dots.<br>Motion is slow at first, then gets faster.<br>This will be the first of 3 parts.<br><br>When you lose track of dots, just guess.<br>Your score will be the total number of<br>green smiles that you click.',
-        fr: 'Super !<br><br>Nous allons maintenant en faire 6 autres avec 3 points.<br>Le mouvement est lent au début, puis s’accélère.<br>Ce sera la première des 3 parties.<br><br>Lorsque vous perdez les points de vue, devinez simplement.<br>Votre score sera le nombre total de<br>sourires verts sur lesquels vous cliquez.'
+        fr: 'Super !<br><br>Nous allons maintenant en faire 6 autres avec 3 points.<br>Le mouvement est lent au début, puis s’accélère.<br><br>Lorsque vous perdez les points de vue, devinez simplement.'
       },
       targets3NoPrac: {
         en: 'The first part of the test has 3 flashing dots.<br>Motion is slow at first, then gets faster.<br>This will be the first of 3 parts.<br><br>When you lose track of dots, just guess.<br>Your score will be the total number of<br>green smiles that you click.',
