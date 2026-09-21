@@ -59,7 +59,7 @@ import './TestHelper.v1.May23.js?legacy';
 import './styles.css';
 
 const picsInput = `
-* This is an input file to the Emotion Recognition Test.
+* This is an input file to the Clinical - Emotion Recognition Assessment in Multiple Modalities.
 * Each line must contain the file path of an emotion picture,
 * relative to the directory containing the test's script.
 * Lines beginning with '*' are ignored.
@@ -174,7 +174,7 @@ export default defineInstrument({
   tags: ['TestMyBrain'],
   internal: {
     edition: 1,
-    name: 'TMB_EMOTION_RECOGNITION'
+    name: 'Clinical_Emotion_Recognition_Assessment_in_Multiple_Modalities'
   },
   content: {
     defaultFullscreen: true,
@@ -199,7 +199,7 @@ export default defineInstrument({
     description:
       'A test that measures the ability to recognize and identify different emotional expressions in facial images.',
     license: 'LGPL-3.0',
-    title: 'TMB Emotion Recognition'
+    title: 'Clinical - Emotion Recognition Assessment in Multiple Modalities'
   },
   measures: {},
   validationSchema: z.object({
