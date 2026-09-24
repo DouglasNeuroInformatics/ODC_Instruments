@@ -11,15 +11,15 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@opendatacapture/runtime-v1": "^2.0.0"
+    "@opendatacapture/runtime-v1": "^2.5.0"
   },
   "devDependencies": {
     "@douglasneuroinformatics/eslint-config": "^6.0.0",
     "@douglasneuroinformatics/prettier-config": "^0.3.0",
     "@douglasneuroinformatics/tsconfig": "^2.0.0",
-    "@opendatacapture/instrument-guidelines": "^2.0.0",
+    "@opendatacapture/instrument-guidelines": "^2.5.0",
     "@opendatacapture/playground-url": "^2.3.1",
-    "@opendatacapture/serve-instrument": "^2.0.0",
+    "@opendatacapture/serve-instrument": "^2.5.0",
     "@types/node": "^22.x",
     "eslint": "^9.22.0",
     "husky": "^9.1.7",
