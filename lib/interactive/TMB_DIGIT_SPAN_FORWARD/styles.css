@@ -1,0 +1,128 @@
+* {
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13pt;
+  text-align: center;
+}
+
+#container {
+  width: 600px;
+  height: 768px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -384px;
+  margin-left: -300px;
+  text-align: center;
+  display: none;
+}
+
+.button {
+  border: 2px solid #f1c40f;
+  border-radius: 1em;
+  background: transparent;
+  color: #000000;
+  box-shadow: 0 5px 15px 5px grey;
+}
+
+.button:active {
+  box-shadow: 0 5px 15px 1px lightgrey;
+}
+
+.button:focus {
+  outline: none;
+}
+
+#feedback {
+  font-size: 30pt;
+  line-height: 2em;
+  height: 100px;
+  text-align: center;
+  display: none;
+}
+
+#digits {
+  font-family: monospace;
+  font-size: 60pt;
+  line-height: 1.5em;
+  height: 150px;
+  text-align: center;
+  display: none;
+}
+
+#responseContainer {
+  width: 340px;
+  height: 440px;
+  margin: auto;
+  text-align: center;
+  display: none;
+}
+
+.responseButton {
+  -webkit-appearance: none;
+  background: darkgrey;
+  font-size: 40pt;
+  line-height: 1.5em;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  border: 5px solid lightgray;
+  border-right: 5px solid #727272;
+  border-bottom: 5px solid #727272;
+  padding: 0;
+  color: #ffffff;
+  text-align: center;
+  font-family:
+    Palatino Linotype,
+    Bookman Antiqua,
+    Palatino,
+    serif;
+}
+
+.deleteButton {
+  -webkit-appearance: none;
+  background: darkgrey;
+  font-size: 40pt;
+  line-height: 1.5em;
+  height: 100px;
+  margin: 5px;
+  border: 5px solid lightgray;
+  border-right: 5px solid #727272;
+  border-bottom: 5px solid #727272;
+  padding: 0;
+  color: #ffffff;
+  text-align: center;
+  font-family:
+    Palatino Linotype,
+    Bookman Antiqua,
+    Palatino,
+    serif;
+  width: 330px;
+}
+
+.responseButton:focus {
+  outline: none;
+}
+
+.responseHighlight {
+  border: 5px solid red;
+}
