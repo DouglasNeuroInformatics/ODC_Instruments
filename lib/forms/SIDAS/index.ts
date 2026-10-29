@@ -13,7 +13,7 @@ export default defineInstrument({
     fr: ['Suicide', 'Santé mentale', 'Risque']
   },
   internal: {
-    edition: 1,
+    edition: 2,
     name: 'SIDAS'
   },
   clientDetails: {
@@ -199,7 +199,7 @@ export default defineInstrument({
         if (frequencyThoughts === 0) {
           return 0;
         }
-        return sum([frequencyThoughts, controlThoughts! - 10, ...Object.values(data)]);
+        return sum([frequencyThoughts, 10 - controlThoughts!, ...Object.values(data)]);
       }
     }
   },
