@@ -52,7 +52,7 @@ export default defineInstrument({
   },
   internal: {
     name: 'GAD_7',
-    edition: 2
+    edition: 3
   },
   content: [
     {
@@ -156,7 +156,7 @@ export default defineInstrument({
     },
     {
       title: {
-        en: ' ',
+        en: 'Difficulty coping',
         fr: 'Difficulté à faire face'
       },
       fields: {
@@ -253,7 +253,7 @@ export default defineInstrument({
       kind: 'computed',
       label: {
         en: 'Total of GAD7',
-        fr: ''
+        fr: 'Total du GAD-7'
       },
       value: (data) => {
         return calculateGAD7total(data);
