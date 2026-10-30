@@ -28,7 +28,7 @@ export default defineInstrument({
     fr: ['TestMyBrain']
   },
   internal: {
-    edition: 2,
+    edition: 3,
     name: 'TMB_MOT'
   },
   content: {

@@ -91,7 +91,7 @@ export default defineInstrument({
     fr: ['TestMyBrain']
   },
   internal: {
-    edition: 3,
+    edition: 4,
     name: 'TMB_DIGIT_SYMBOL_MATCHING'
   },
   content: {

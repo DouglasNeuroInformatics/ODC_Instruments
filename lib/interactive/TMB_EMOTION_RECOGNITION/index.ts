@@ -173,7 +173,7 @@ export default defineInstrument({
   language: 'en',
   tags: ['TestMyBrain'],
   internal: {
-    edition: 1,
+    edition: 2,
     name: 'TMB_EMOTION_RECOGNITION'
   },
   content: {

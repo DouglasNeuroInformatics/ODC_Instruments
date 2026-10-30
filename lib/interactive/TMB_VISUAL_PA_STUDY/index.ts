@@ -184,7 +184,7 @@ export default defineInstrument({
     fr: ['TestMyBrain']
   },
   internal: {
-    edition: 4,
+    edition: 5,
     name: 'TMB_VISUAL_PA_STUDY'
   },
   content: {
