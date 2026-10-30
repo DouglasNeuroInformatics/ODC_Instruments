@@ -34,7 +34,7 @@ export default defineInstrument({
     fr: ['TestMyBrain']
   },
   internal: {
-    edition: 1,
+    edition: 2,
     name: 'TMB_FLANKER_ATTENTION'
   },
   content: {
