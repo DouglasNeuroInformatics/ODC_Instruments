@@ -11,9 +11,10 @@ export default defineInstrument({
     fr: ['Insomnie', 'Sommeil']
   },
   internal: {
-    edition: 1,
+    edition: 2,
     name: 'ATHENS_INSOMNIA_SCALE'
   },
+  resetButton: true,
   clientDetails: {
     estimatedDuration: 10
   },

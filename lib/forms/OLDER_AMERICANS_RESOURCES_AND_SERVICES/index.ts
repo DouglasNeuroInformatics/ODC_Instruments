@@ -6,7 +6,7 @@ export default defineInstrument({
   language: ['en', 'fr'],
   internal: {
     name: 'OLDER_AMERICANS_RESOURCES_AND_SERVICES',
-    edition: 2
+    edition: 3
   },
   tags: {
     en: ['social'],
@@ -220,39 +220,56 @@ export default defineInstrument({
       fr: 'Réseau social'
     }
   },
-  validationSchema: z.object({
-    peopleYouKnowCanVisitTheirHome: z.enum([
-      'five or more',
-      'three to four',
-      'one to two',
-      'none',
-      'prefer not to answer'
-    ]),
-    numbersOfCallsLastWeek: z.enum(['once a day or more', '2 - 6 times', 'once', 'not at all', 'prefer not to answer']),
-    numbersOfTimeSpentWithSomeoneLastWeek: z.enum([
-      'once a day or more',
-      '2 - 6 times',
-      'once',
-      'not at all',
-      'prefer not to answer'
-    ]),
-    haveSomeoneYouTrust: z.enum(['yes', 'no', 'prefer not to answer']),
-    doYouFeelLonely: z.enum(['quite often', 'sometimes', 'almost never', 'prefer not to answer']),
-    seeFriendsAndRelativesAsYouWant: z.enum([
-      'as often as wants to',
-      'somewhat unhappy about how little',
-      'prefer not to answer'
-    ]),
-    someoneTakeCareOfYouWhenNeeded: z.enum(['yes', 'no one willing and able', 'prefer not to answer']),
-    someoneTakeCareOfYouAsLongAsYouNeed: z
-      .enum([
-        'Someone who would take care of you indefinitely (as long as needed)',
-        'Someone who would take care of you for a short time (a few weeks to six months)',
-        'Someone who would help you now and then (taking you to the doctor, fixing lunch, etc.)',
+  validationSchema: z
+    .object({
+      peopleYouKnowCanVisitTheirHome: z.enum([
+        'five or more',
+        'three to four',
+        'one to two',
+        'none',
         'prefer not to answer'
-      ])
-      .optional()
-  }),
+      ]),
+      numbersOfCallsLastWeek: z.enum([
+        'once a day or more',
+        '2 - 6 times',
+        'once',
+        'not at all',
+        'prefer not to answer'
+      ]),
+      numbersOfTimeSpentWithSomeoneLastWeek: z.enum([
+        'once a day or more',
+        '2 - 6 times',
+        'once',
+        'not at all',
+        'prefer not to answer'
+      ]),
+      haveSomeoneYouTrust: z.enum(['yes', 'no', 'prefer not to answer']),
+      doYouFeelLonely: z.enum(['quite often', 'sometimes', 'almost never', 'prefer not to answer']),
+      seeFriendsAndRelativesAsYouWant: z.enum([
+        'as often as wants to',
+        'somewhat unhappy about how little',
+        'prefer not to answer'
+      ]),
+      someoneTakeCareOfYouWhenNeeded: z.enum(['yes', 'no one willing and able', 'prefer not to answer']),
+      someoneTakeCareOfYouAsLongAsYouNeed: z
+        .enum([
+          'Someone who would take care of you indefinitely (as long as needed)',
+          'Someone who would take care of you for a short time (a few weeks to six months)',
+          'Someone who would help you now and then (taking you to the doctor, fixing lunch, etc.)',
+          'prefer not to answer'
+        ])
+        .optional()
+    })
+    .superRefine(({ someoneTakeCareOfYouAsLongAsYouNeed, someoneTakeCareOfYouWhenNeeded }, ctx) => {
+      // the follow-up is shown when the answer is "yes", and is then required
+      if (someoneTakeCareOfYouWhenNeeded === 'yes' && someoneTakeCareOfYouAsLongAsYouNeed === undefined) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'This question is required / Cette question est obligatoire',
+          path: ['someoneTakeCareOfYouAsLongAsYouNeed']
+        });
+      }
+    }),
   measures: {
     peopleYouKnowCanVisitTheirHome: {
       kind: 'const',

@@ -52,7 +52,7 @@ export default defineInstrument({
   },
   internal: {
     name: 'GAD_7',
-    edition: 3
+    edition: 4
   },
   content: [
     {
@@ -260,14 +260,26 @@ export default defineInstrument({
       }
     }
   },
-  validationSchema: z.object({
-    nervousAnxiousOnEdge: z.number().int().min(0).max(3),
-    noStopControlWorrying: z.number().int().min(0).max(3),
-    worryingTooMuch: z.number().int().min(0).max(3),
-    troubleRelaxing: z.number().int().min(0).max(3),
-    restless: z.number().int().min(0).max(3),
-    easilyAnnoyedIrritable: z.number().int().min(0).max(3),
-    afraidSomethingAwful: z.number().int().min(0).max(3),
-    difficultyCoping: z.number().int().min(0).max(3).optional()
-  })
+  validationSchema: z
+    .object({
+      nervousAnxiousOnEdge: z.number().int().min(0).max(3),
+      noStopControlWorrying: z.number().int().min(0).max(3),
+      worryingTooMuch: z.number().int().min(0).max(3),
+      troubleRelaxing: z.number().int().min(0).max(3),
+      restless: z.number().int().min(0).max(3),
+      easilyAnnoyedIrritable: z.number().int().min(0).max(3),
+      afraidSomethingAwful: z.number().int().min(0).max(3),
+      difficultyCoping: z.number().int().min(0).max(3).optional()
+    })
+    .superRefine(({ difficultyCoping, ...items }, ctx) => {
+      // difficultyCoping is shown when any item is not zero, and is then required
+      const isAnyNonZero = Object.values(items).some((value) => value > 0);
+      if (isAnyNonZero && difficultyCoping === undefined) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'This question is required / Cette question est obligatoire',
+          path: ['difficultyCoping']
+        });
+      }
+    })
 });

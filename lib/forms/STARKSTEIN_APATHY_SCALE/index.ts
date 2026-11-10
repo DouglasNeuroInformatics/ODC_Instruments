@@ -209,8 +209,9 @@ export default defineInstrument({
   ],
   internal: {
     name: 'STARKSTEIN_APATHY_SCALE',
-    edition: 2
+    edition: 3
   },
+  resetButton: true,
   measures: {
     interestedInLearningNewThings: {
       kind: 'const',

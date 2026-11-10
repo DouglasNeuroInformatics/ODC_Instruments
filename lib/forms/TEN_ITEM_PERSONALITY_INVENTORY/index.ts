@@ -38,8 +38,9 @@ export default defineInstrument({
   language: ['en', 'fr'],
   internal: {
     name: 'TEN_ITEM_PERSONALITY_INVENTORY',
-    edition: 2
+    edition: 3
   },
+  resetButton: true,
   tags: {
     en: [
       'personality',
