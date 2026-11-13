@@ -59,7 +59,7 @@ export default defineInstrument({
       en: 'Starkstein Apathy Scale',
       fr: "Échelle d'apathie de Starkstein"
     },
-    referenceUrl: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8467636/',
+    referenceUrl: 'https://doi.org/10.1176/jnp.4.2.134',
     estimatedDuration: 5,
     instructions: {
       en: [
