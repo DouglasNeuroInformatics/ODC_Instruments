@@ -1,5 +1,6 @@
 import { defineInstrument } from '/runtime/v1/@opendatacapture/runtime-core';
-import { z } from '/runtime/v1/zod@3.23.x';
+import { sum } from '/runtime/v1/lodash-es@4.x';
+import { z } from '/runtime/v1/zod@3.x';
 
 const $Item = z.number().int().min(0).max(3);
 
@@ -11,17 +12,22 @@ export default defineInstrument({
     fr: ['Insomnie', 'Sommeil']
   },
   internal: {
-    edition: 1,
+    edition: 2,
     name: 'ATHENS_INSOMNIA_SCALE'
   },
+  resetButton: true,
   clientDetails: {
-    estimatedDuration: 10
+    estimatedDuration: 10,
+    instructions: {
+      en: ['Follow the instructions on the next page'],
+      fr: ['Suivez les instructions de la page suivante']
+    }
   },
   content: [
     {
       description: {
         en: 'This scale is intended to record your own assessment of any sleep difficulty you might have experienced. Please, check (by clicking the appropriate number) the items below to indicate your estimate of any difficulty, provided that it occurred at least three times per week during the last month.',
-        fr: "Cette échelle est destinée à noter votre propre évaluation des difficultés de sommeil que vous auriez pu avoir éprouvé. Veuillez choisir (en encerclant le numéro approprié) un des énoncés ci-dessous qui décrit le mieux votre évaluation de chaque difficulté, pourvu que vous l'aviez épouvé au moins trois fois par semaine au cours du mois passé."
+        fr: "Cette échelle est destinée à noter votre propre évaluation des difficultés de sommeil que vous auriez pu avoir éprouvées. Veuillez choisir (en cliquant sur le numéro approprié) un des énoncés ci-dessous qui décrit le mieux votre évaluation de chaque difficulté, pourvu que vous l'ayez éprouvée au moins trois fois par semaine au cours du mois passé."
       },
       fields: {
         sleepInduction: {
@@ -206,7 +212,7 @@ export default defineInstrument({
   details: {
     description: {
       en: 'This scale is intended to record your own assessment of any sleep difficulty you might have experienced. Please, check (by clicking the appropriate number) the items below to indicate your estimate of any difficulty, provided that it occurred at least three times per week during the last month.',
-      fr: "Cette échelle est destinée à noter votre propre évaluation des difficultés de sommeil que vous auriez pu avoir éprouvé. Veuillez choisir (en encerclant le numéro approprié) un des énoncés ci-dessous qui décrit le mieux votre évaluation de chaque difficulté, pourvu que vous l'aviez épouvé au moins trois fois par semaine au cours du mois passé."
+      fr: "Cette échelle est destinée à noter votre propre évaluation des difficultés de sommeil que vous auriez pu avoir éprouvées. Veuillez choisir (en cliquant sur le numéro approprié) un des énoncés ci-dessous qui décrit le mieux votre évaluation de chaque difficulté, pourvu que vous l'ayez éprouvée au moins trois fois par semaine au cours du mois passé."
     },
     license: 'CC-BY-NC-4.0',
     title: {
@@ -214,7 +220,48 @@ export default defineInstrument({
       fr: "Échelle d'insomnie d'Athènes"
     }
   },
-  measures: {},
+  measures: {
+    sleepInduction: {
+      kind: 'const',
+      ref: 'sleepInduction'
+    },
+    awakeningsDuringNight: {
+      kind: 'const',
+      ref: 'awakeningsDuringNight'
+    },
+    finalAwakeningEarlierThanDesired: {
+      kind: 'const',
+      ref: 'finalAwakeningEarlierThanDesired'
+    },
+    sleepDuration: {
+      kind: 'const',
+      ref: 'sleepDuration'
+    },
+    sleepQuality: {
+      kind: 'const',
+      ref: 'sleepQuality'
+    },
+    daytimeWellbeing: {
+      kind: 'const',
+      ref: 'daytimeWellbeing'
+    },
+    daytimeFunctioning: {
+      kind: 'const',
+      ref: 'daytimeFunctioning'
+    },
+    daytimeSleepiness: {
+      kind: 'const',
+      ref: 'daytimeSleepiness'
+    },
+    totalScore: {
+      kind: 'computed',
+      label: {
+        en: 'Total Score',
+        fr: 'Score total'
+      },
+      value: (data) => sum(Object.values(data))
+    }
+  },
   validationSchema: z.object({
     sleepInduction: $Item,
     awakeningsDuringNight: $Item,
