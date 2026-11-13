@@ -66,7 +66,7 @@ export default defineInstrument({
     license: 'FREE-NOS',
     title: {
       en: 'Ten-Item Personality Inventory (TIPI)',
-      fr: 'Ten-Item Personality Inventory (TIPI)'
+      fr: 'Inventaire de personnalité en dix items (TIPI)'
     }
   },
   content: [

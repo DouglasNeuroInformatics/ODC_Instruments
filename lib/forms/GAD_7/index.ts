@@ -31,7 +31,7 @@ export default defineInstrument({
   details: {
     title: {
       en: 'Generalized Anxiety Disorder-7 (GAD-7)',
-      fr: "Trouble d'anxiété générale-7 (GAD-7)"
+      fr: "Trouble d'anxiété généralisée-7 (GAD-7)"
     },
     description: {
       en: 'The Generalized Anxiety Disorder 7 (GAD-7) is a self-reported questionnaire for screening and severity measuring of generalized anxiety disorder (GAD). The GAD7 asks for self-reported anxiety symptoms over the past two weeks.',

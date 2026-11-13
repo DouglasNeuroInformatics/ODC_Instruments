@@ -27,7 +27,7 @@ export default defineInstrument({
     {
       description: {
         en: 'This scale is intended to record your own assessment of any sleep difficulty you might have experienced. Please, check (by clicking the appropriate number) the items below to indicate your estimate of any difficulty, provided that it occurred at least three times per week during the last month.',
-        fr: "Cette échelle est destinée à noter votre propre évaluation des difficultés de sommeil que vous auriez pu avoir éprouvé. Veuillez choisir (en encerclant le numéro approprié) un des énoncés ci-dessous qui décrit le mieux votre évaluation de chaque difficulté, pourvu que vous l'aviez éprouvé au moins trois fois par semaine au cours du mois passé."
+        fr: "Cette échelle est destinée à noter votre propre évaluation des difficultés de sommeil que vous auriez pu avoir éprouvées. Veuillez choisir (en cliquant sur le numéro approprié) un des énoncés ci-dessous qui décrit le mieux votre évaluation de chaque difficulté, pourvu que vous l'ayez éprouvée au moins trois fois par semaine au cours du mois passé."
       },
       fields: {
         sleepInduction: {
@@ -212,7 +212,7 @@ export default defineInstrument({
   details: {
     description: {
       en: 'This scale is intended to record your own assessment of any sleep difficulty you might have experienced. Please, check (by clicking the appropriate number) the items below to indicate your estimate of any difficulty, provided that it occurred at least three times per week during the last month.',
-      fr: "Cette échelle est destinée à noter votre propre évaluation des difficultés de sommeil que vous auriez pu avoir éprouvé. Veuillez choisir (en encerclant le numéro approprié) un des énoncés ci-dessous qui décrit le mieux votre évaluation de chaque difficulté, pourvu que vous l'aviez éprouvé au moins trois fois par semaine au cours du mois passé."
+      fr: "Cette échelle est destinée à noter votre propre évaluation des difficultés de sommeil que vous auriez pu avoir éprouvées. Veuillez choisir (en cliquant sur le numéro approprié) un des énoncés ci-dessous qui décrit le mieux votre évaluation de chaque difficulté, pourvu que vous l'ayez éprouvée au moins trois fois par semaine au cours du mois passé."
     },
     license: 'CC-BY-NC-4.0',
     title: {

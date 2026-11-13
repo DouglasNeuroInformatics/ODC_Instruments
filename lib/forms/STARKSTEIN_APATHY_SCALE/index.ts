@@ -1,4 +1,5 @@
 import { defineInstrument } from '/runtime/v1/@opendatacapture/runtime-core';
+import { sum } from '/runtime/v1/lodash-es@4.x';
 import { z } from '/runtime/v1/zod@3.x';
 
 const $FieldOptionsValidation = z.number().int().gte(0).lte(3);
@@ -16,6 +17,18 @@ const fieldOptionsLikertScale = {
     3: 'Beaucoup'
   }
 };
+
+/** Items 1 to 8 are reverse-scored (Not at all = 3, A lot = 0) */
+const reverseScoredItems = new Set<string>([
+  'alwaysLookForSomethingToDo',
+  'anythingInterestsYou',
+  'concernedAboutOwnCondition',
+  'haveEnergyForDailyActivities',
+  'haveMotivation',
+  'havePlanAndGoalsForFuture',
+  'interestedInLearningNewThings',
+  'putMuchEffortIntoThings'
+]);
 
 export default defineInstrument({
   kind: 'FORM',
@@ -90,7 +103,7 @@ export default defineInstrument({
           disableAutoPrefix: true,
           label: {
             en: 'Are you concerned about your condition?',
-            fr: 'Êtes-vous préoccupé par votre état de santé ?'
+            fr: 'Êtes-vous préoccupé par votre état de santé?'
           },
           options: fieldOptionsLikertScale
         },
@@ -110,7 +123,7 @@ export default defineInstrument({
           disableAutoPrefix: true,
           label: {
             en: 'Are you always looking for something to do?',
-            fr: "Vous êtes toujours à la recherche d'une activité ?"
+            fr: "Vous êtes toujours à la recherche d'une activité?"
           },
           options: fieldOptionsLikertScale
         },
@@ -120,7 +133,7 @@ export default defineInstrument({
           disableAutoPrefix: true,
           label: {
             en: 'Do you have plans and goals for the future?',
-            fr: "Avez-vous des projets et des objectifs pour l'avenir ?"
+            fr: "Avez-vous des projets et des objectifs pour l'avenir?"
           },
           options: fieldOptionsLikertScale
         },
@@ -130,7 +143,7 @@ export default defineInstrument({
           disableAutoPrefix: true,
           label: {
             en: 'Do you have motivation?',
-            fr: 'Êtes-vous motivé (e)?'
+            fr: 'Êtes-vous motivé(e)?'
           },
           options: fieldOptionsLikertScale
         },
@@ -140,7 +153,7 @@ export default defineInstrument({
           disableAutoPrefix: true,
           label: {
             en: 'Do you have the energy for daily activities?',
-            fr: "Avez-vous de l'énergie pour les activités quotidiennes? "
+            fr: "Avez-vous de l'énergie pour les activités quotidiennes?"
           },
           options: fieldOptionsLikertScale
         },
@@ -150,7 +163,7 @@ export default defineInstrument({
           disableAutoPrefix: true,
           label: {
             en: 'Does someone have to tell you what to do each day?',
-            fr: "Est-ce que quelqu'un doit vous dire quoi faire à chaque jour? "
+            fr: "Est-ce que quelqu'un doit vous dire quoi faire à chaque jour?"
           },
           options: fieldOptionsLikertScale
         },
@@ -160,7 +173,7 @@ export default defineInstrument({
           disableAutoPrefix: true,
           label: {
             en: 'Are you indifferent to things?',
-            fr: 'Est-ce que les choses vous laissent indifférent(e)s? '
+            fr: 'Est-ce que les choses vous laissent indifférent(e)?'
           },
           options: fieldOptionsLikertScale
         },
@@ -170,7 +183,7 @@ export default defineInstrument({
           disableAutoPrefix: true,
           label: {
             en: 'Are you unconcerned with many things?',
-            fr: 'Êtes-vous indifférent à beaucoup de choses ?'
+            fr: 'Êtes-vous indifférent à beaucoup de choses?'
           },
           options: fieldOptionsLikertScale
         },
@@ -180,7 +193,7 @@ export default defineInstrument({
           disableAutoPrefix: true,
           label: {
             en: 'Do you need a push to get started on things?',
-            fr: "Avez-vous besoin d'être poussé(e) pour commencer des choses? "
+            fr: "Avez-vous besoin d'être poussé(e) pour commencer des choses?"
           },
           options: fieldOptionsLikertScale
         },
@@ -190,7 +203,7 @@ export default defineInstrument({
           disableAutoPrefix: true,
           label: {
             en: 'Are you neither happy nor sad, just in between?',
-            fr: "Vous n'êtes ni heureux ni triste, mais entre les deux ?"
+            fr: "Vous n'êtes ni heureux ni triste, mais entre les deux?"
           },
           options: fieldOptionsLikertScale
         },
@@ -268,6 +281,15 @@ export default defineInstrument({
     areYouApathetic: {
       kind: 'const',
       ref: 'areYouApathetic'
+    },
+    totalScore: {
+      kind: 'computed',
+      label: {
+        en: 'Total Score (items 1-8 reverse-scored, range 0-42)',
+        fr: 'Score total (items 1 à 8 inversés, échelle de 0 à 42)'
+      },
+      value: (data) =>
+        sum(Object.entries(data).map(([key, value]) => (reverseScoredItems.has(key) ? 3 - value : value)))
     }
   },
   tags: {
