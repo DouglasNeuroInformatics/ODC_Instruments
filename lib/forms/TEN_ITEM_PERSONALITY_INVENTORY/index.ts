@@ -2,7 +2,6 @@ import { defineInstrument } from '/runtime/v1/@opendatacapture/runtime-core';
 import { z } from '/runtime/v1/zod@3.x';
 
 const $IntScale = z.number().int().min(1).max(7);
-const $ContinuousScale = z.number().min(1).max(7);
 
 const scaleOptions = {
   en: {
@@ -106,7 +105,7 @@ export default defineInstrument({
           kind: 'number',
           label: {
             en: '3. Dependable, self-disciplined.',
-            fr: '3. Digne de confiance, autodiscipliné(e).`'
+            fr: '3. Digne de confiance, autodiscipliné(e).'
           },
           options: scaleOptions,
           variant: 'select'
@@ -182,7 +181,7 @@ export default defineInstrument({
       kind: 'computed',
       label: {
         en: 'Extraversion (higher score = more extroverted, range 1-7)',
-        fr: 'Extraversion (higher score = more extroverted, range 1-7)'
+        fr: 'Extraversion (score plus élevé = plus extraverti, échelle de 1 à 7)'
       },
       value: (data) => {
         // calculate the score = (reverse(q6) + q1) / 2
@@ -195,7 +194,7 @@ export default defineInstrument({
       kind: 'computed',
       label: {
         en: 'Agreeableness (higher score = more agreeable, range 1-7)',
-        fr: 'Agreeableness (higher score = more agreeable, range 1-7)'
+        fr: 'Amabilité (score plus élevé = plus aimable, échelle de 1 à 7)'
       },
       value: (data) => {
         // calculate the score = (reverse(q2) + q7) / 2
@@ -208,7 +207,7 @@ export default defineInstrument({
       kind: 'computed',
       label: {
         en: 'Conscientiousness (higher score = more conscientious, range 1-7)',
-        fr: 'Conscientiousness (higher score = more conscientious, range 1-7)'
+        fr: 'Conscience (score plus élevé = plus consciencieux, échelle de 1 à 7)'
       },
       value: (data) => {
         // calculate the score = (reverse(q8) + q3) / 2
@@ -221,7 +220,7 @@ export default defineInstrument({
       kind: 'computed',
       label: {
         en: 'Emotional Stability (higher score = more stable, range 1-7)',
-        fr: 'Emotional Stability (higher score = more stable, range 1-7)'
+        fr: 'Stabilité émotionnelle (score plus élevé = plus stable, échelle de 1 à 7)'
       },
       value: (data) => {
         // calculate the score = (reverse(q4) + q9) / 2
@@ -230,11 +229,11 @@ export default defineInstrument({
         return computeScore(score4, score9);
       }
     },
-    openessToExperience: {
+    opennessToExperience: {
       kind: 'computed',
       label: {
         en: 'Openness to Experience (higher score = more open, range 1-7)',
-        fr: 'Openness to Experience (higher score = more open, range 1-7)'
+        fr: "Ouverture à l'expérience (score plus élevé = plus ouvert, échelle de 1 à 7)"
       },
       value: (data) => {
         // calculate the score = (reverse(q10) + q5) / 2
@@ -245,7 +244,6 @@ export default defineInstrument({
     }
   },
   validationSchema: z.object({
-    //answers
     extrovertedEnthusiastic: $IntScale,
     criticalQuarrelsome: $IntScale,
     dependableSelfDisciplined: $IntScale,
@@ -255,12 +253,6 @@ export default defineInstrument({
     sympatheticWarm: $IntScale,
     disorganizedCareless: $IntScale,
     calmEmotionallyStable: $IntScale,
-    conventionalUncreative: $IntScale,
-    //measures
-    extraversion: $ContinuousScale.optional(),
-    agreeableness: $ContinuousScale.optional(),
-    conscientiousness: $ContinuousScale.optional(),
-    emotionalStability: $ContinuousScale.optional(),
-    opennessToExperience: $ContinuousScale.optional()
+    conventionalUncreative: $IntScale
   })
 });

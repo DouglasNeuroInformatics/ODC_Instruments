@@ -62,10 +62,6 @@ export default defineInstrument({
       },
       fields: {
         nervousAnxiousOnEdge: {
-          description: {
-            en: 'Over the last two weeks, how often have you been bothered by feeling nervous, anxious, or on edge?',
-            fr: "Au cours des 14 derniers jours, à quelle fréquence avez-vous été dérangé(e) par sentiment de nervosité, d'anxiété ou de tension?"
-          },
           label: {
             en: 'Feeling nervous, anxious, or on edge',
             fr: "Sentiment de nervosité, d'anxiété ou de tension"
@@ -75,10 +71,6 @@ export default defineInstrument({
           variant: 'radio'
         },
         noStopControlWorrying: {
-          description: {
-            en: 'Over the last two weeks, how often have you been bothered by not being able to stop or control worrying?',
-            fr: "Au cours des 14 derniers jours, à quelle fréquence avez-vous été dérangé(e) par incapable d'arrêter de vous inquiéter ou de contrôler vos inquiétudes?"
-          },
           label: {
             en: 'Not being able to stop or control worrying',
             fr: "Incapable d'arrêter de vous inquiéter ou de contrôler vos inquiétudes"
@@ -88,10 +80,6 @@ export default defineInstrument({
           variant: 'radio'
         },
         worryingTooMuch: {
-          description: {
-            en: 'Over the last two weeks, how often have you been bothered by worrying too much about different things?',
-            fr: 'Au cours des 14 derniers jours, à quelle fréquence avez-vous été dérangé(e) par inquiétudes excessives à propos de tout et de rien?'
-          },
           label: {
             en: 'Worrying too much about different things',
             fr: 'Inquiétudes excessives à propos de tout et de rien'
@@ -101,10 +89,6 @@ export default defineInstrument({
           variant: 'radio'
         },
         troubleRelaxing: {
-          description: {
-            en: 'Over the last two weeks, how often have you had trouble relaxing?',
-            fr: 'Au cours des deux dernières semaines, à quelle fréquence avez-vous eu du mal à vous détendre?'
-          },
           label: {
             en: 'Have trouble relaxing',
             fr: 'Difficulté à se détendre'
@@ -114,10 +98,6 @@ export default defineInstrument({
           variant: 'radio'
         },
         restless: {
-          description: {
-            en: 'Over the last two weeks, how often have you been bothered by being so restless that it is hard to sit still?',
-            fr: "Au cours des 14 derniers jours, à quelle fréquence avez-vous été dérangé(e) par agitation telle qu'il est difficile de rester tranquille?"
-          },
           label: {
             en: 'Being so restless that it is hard to sit still',
             fr: "Agitation telle qu'il est difficile de rester tranquille"
@@ -127,10 +107,6 @@ export default defineInstrument({
           variant: 'radio'
         },
         easilyAnnoyedIrritable: {
-          description: {
-            en: 'Over the last two weeks, how often have you been bothered by becoming easily annoyed or irritable?',
-            fr: 'Au cours des 14 derniers jours, à quelle fréquence avez-vous été dérangé(e) par devenir facilement contrarié(e) ou irritable?'
-          },
           label: {
             en: 'Becoming easily annoyed or irritable',
             fr: 'Devenir facilement contrarié(e) ou irritable'
@@ -140,10 +116,6 @@ export default defineInstrument({
           variant: 'radio'
         },
         afraidSomethingAwful: {
-          description: {
-            en: 'Over the last two weeks, how often have you been bothered by feeling afraid, as if something awful might happen?',
-            fr: "Au cours des 14 derniers jours, à quelle fréquence avez-vous été dérangé(e) par avoir peur que quelque chose d'épouvantable puisse arriver?"
-          },
           label: {
             en: 'Feeling afraid, as if something awful might happen',
             fr: "Avoir peur que quelque chose d'épouvantable puisse arriver"
@@ -151,15 +123,7 @@ export default defineInstrument({
           kind: 'number',
           options: likertOptions,
           variant: 'radio'
-        }
-      }
-    },
-    {
-      title: {
-        en: 'Difficulty coping',
-        fr: 'Difficulté à faire face'
-      },
-      fields: {
+        },
         difficultyCoping: {
           kind: 'dynamic',
           deps: [
@@ -186,13 +150,9 @@ export default defineInstrument({
               return null;
             }
             return {
-              description: {
-                en: 'Given your problems selected above, how difficult have they made it for you to do your work, take care of things at home, or get along with other people?',
-                fr: 'Compte tenu des problèmes sélectionnés ci-dessus, dans quelle mesure ceux-ci rendus plus difficile votre travail, vous occuper de vos affaires à la maison ou vous entendre avec les autres personnes?'
-              },
               label: {
                 en: 'Given your problems selected above, how difficult have they made it for you to do your work, take care of things at home, or get along with other people?',
-                fr: 'Compte tenu des problèmes sélectionnés ci-dessus, dans quelle mesure ceux-ci rendus plus difficile votre travail, vous occuper de vos affaires à la maison ou vous entendre avec les autres personnes?'
+                fr: 'Compte tenu des problèmes sélectionnés ci-dessus, dans quelle mesure ceux-ci ont-ils rendu plus difficile votre travail, vous occuper de vos affaires à la maison ou vous entendre avec les autres personnes?'
               },
               kind: 'number',
               options: {
