@@ -31,7 +31,7 @@ export default defineInstrument({
   language: ['en', 'fr'],
   internal: {
     name: 'FAGERSTRÖM_NICOTINE_DEPENDENCE',
-    edition: 3
+    edition: 4
   },
   tags: {
     en: ['smoking', 'addiction', 'nicotine'],
@@ -58,8 +58,8 @@ export default defineInstrument({
     smokes: {
       kind: 'boolean',
       label: {
-        en: 'Do you smoke?',
-        fr: 'Fumez-vous?'
+        en: 'Do you currently smoke?',
+        fr: 'Fumez-vous actuellement?'
       },
       options: {
         en: {
