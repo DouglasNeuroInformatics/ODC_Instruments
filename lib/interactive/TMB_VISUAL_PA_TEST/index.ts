@@ -184,7 +184,7 @@ export default defineInstrument({
     fr: ['TestMyBrain']
   },
   internal: {
-    edition: 3,
+    edition: 4,
     name: 'TMB_VISUAL_PA_TEST'
   },
   content: {
@@ -362,5 +362,36 @@ export default defineInstrument({
     }
   },
   measures: {},
-  validationSchema: z.array(z.any())
+  // `done` receives the trials followed by one summary entry. A trial without a response has a
+  // response of 'none'. The standard deviation is null when there is only one correct response.
+  validationSchema: z
+    .array(
+      z.discriminatedUnion('type', [
+        z.object({
+          type: z.enum(['practice', 'test']),
+          probe: z.string(),
+          target: z.string(),
+          response: z.string(),
+          correct: z.number(),
+          rt: z.number(),
+          state: z.string()
+        }),
+        z.object({
+          type: z.literal('summaryScores'),
+          score: z.number(),
+          accuracy: z.number(),
+          meanRTc: z.number(),
+          medianRTc: z.number(),
+          sdRTc: z.number().nullable(),
+          responseDevice: z.string(),
+          testVersion: z.string()
+        })
+      ])
+    )
+    .refine(
+      (results) =>
+        results.filter((result) => result.type === 'summaryScores').length === 1 &&
+        results[results.length - 1]?.type === 'summaryScores',
+      { message: 'The results must end with exactly one summary entry' }
+    )
 });

@@ -91,7 +91,7 @@ export default defineInstrument({
     fr: ['TestMyBrain']
   },
   internal: {
-    edition: 4,
+    edition: 5,
     name: 'TMB_DIGIT_SYMBOL_MATCHING'
   },
   content: {
@@ -132,5 +132,44 @@ export default defineInstrument({
     }
   },
   measures: {},
-  validationSchema: z.any()
+  // `done` receives the trials followed by one summary entry. The trial that ends the test by
+  // timing out has a null response, correct and rt. The summary statistics are null when there
+  // are too few correct responses to compute them.
+  validationSchema: z
+    .array(
+      z.discriminatedUnion('type', [
+        z.object({
+          type: z.enum(['practice', 'test']),
+          symbol: z.number(),
+          digit: z.number(),
+          response: z.string().nullable(),
+          correct: z.number().nullable(),
+          rt: z.number().nullable(),
+          stimOnsetTimestamp: z.number(),
+          responseTimestamp: z.number(),
+          state: z.string()
+        }),
+        z.object({
+          type: z.literal('summaryScores'),
+          score: z.number(),
+          num_correct: z.number(),
+          num_responses: z.number(),
+          meanRTc: z.number().nullable(),
+          medianRTc: z.number().nullable(),
+          sdRTc: z.number().nullable(),
+          accuracy: z.number().nullable(),
+          cvRTc: z.number().nullable(),
+          didPracticeTrials: z.number(),
+          symbolsUsed: z.string(),
+          responseDevice: z.string(),
+          testVersion: z.string()
+        })
+      ])
+    )
+    .refine(
+      (results) =>
+        results.filter((result) => result.type === 'summaryScores').length === 1 &&
+        results[results.length - 1]?.type === 'summaryScores',
+      { message: 'The results must end with exactly one summary entry' }
+    )
 });
