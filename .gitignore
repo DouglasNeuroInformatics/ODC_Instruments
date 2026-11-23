@@ -3,6 +3,6 @@ data/
 dist/
 scratch/
 settings.local.json
-AGENTS.md
-CLAUDE.md
 TODO.md
+*.log
+.DS_Store
