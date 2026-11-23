@@ -28,7 +28,7 @@ export default defineInstrument({
     fr: ['TestMyBrain']
   },
   internal: {
-    edition: 3,
+    edition: 4,
     name: 'TMB_MOT'
   },
   content: {
@@ -70,5 +70,38 @@ export default defineInstrument({
     }
   },
   measures: {},
-  validationSchema: z.any()
+  // `done` receives the trials followed by one summary entry. A trial that times out is still
+  // recorded, with a state of 'timeout' and zero hits, and is then repeated.
+  validationSchema: z
+    .array(
+      z.discriminatedUnion('type', [
+        z.object({
+          type: z.enum(['practice', 'test']),
+          hits: z.number(),
+          rt: z.number(),
+          numTargets: z.number(),
+          numdots: z.number(),
+          speed: z.number(),
+          noise: z.number(),
+          duration: z.number(),
+          frametime: z.number(),
+          state: z.string(),
+          seed: z.string()
+        }),
+        z.object({
+          type: z.literal('summaryScores'),
+          score: z.number(),
+          correct: z.number(),
+          rtTotal: z.number(),
+          medianFrametime: z.number(),
+          medianDuration: z.number()
+        })
+      ])
+    )
+    .refine(
+      (results) =>
+        results.filter((result) => result.type === 'summaryScores').length === 1 &&
+        results[results.length - 1]?.type === 'summaryScores',
+      { message: 'The results must end with exactly one summary entry' }
+    )
 });
