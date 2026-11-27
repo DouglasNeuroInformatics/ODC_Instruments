@@ -55,7 +55,7 @@ export default defineInstrument({
     fr: ['Cannabis', 'Dépendance', 'Abus de substance']
   },
   internal: {
-    edition: 2,
+    edition: 3,
     name: 'CUDIT_R'
   },
   clientDetails: {
@@ -241,10 +241,10 @@ export default defineInstrument({
         },
         fr: {
           0: 'Jamais',
-          1: 'moins que 1fois/mois',
+          1: 'Moins que 1 fois/mois',
           2: '2 à 4 fois/mois',
           3: '2 à 3 fois/semaine',
-          4: 'plus que 4 fois/semaine'
+          4: 'Plus que 4 fois/semaine'
         }
       },
       variant: 'radio'
