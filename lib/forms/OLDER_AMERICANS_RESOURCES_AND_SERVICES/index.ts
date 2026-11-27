@@ -6,7 +6,7 @@ export default defineInstrument({
   language: ['en', 'fr'],
   internal: {
     name: 'OLDER_AMERICANS_RESOURCES_AND_SERVICES',
-    edition: 3
+    edition: 4
   },
   tags: {
     en: ['social'],
@@ -22,18 +22,18 @@ export default defineInstrument({
       },
       options: {
         en: {
-          'five or more': 'five or more',
-          'three to four': 'three to four',
-          'one to two': 'one to two',
-          none: 'none',
-          'prefer not to answer': 'prefer not to answer'
+          'five or more': 'Five or more',
+          'three to four': 'Three to four',
+          'one to two': 'One to two',
+          none: 'None',
+          'prefer not to answer': 'Prefer not to answer'
         },
         fr: {
-          'five or more': 'cinq ou plus',
-          'three to four': 'trois ou quatre',
-          'one to two': 'une ou deux',
-          none: 'personne',
-          'prefer not to answer': 'préfère ne pas répondre'
+          'five or more': 'Cinq ou plus',
+          'three to four': 'Trois ou quatre',
+          'one to two': 'Une ou deux',
+          none: 'Personne',
+          'prefer not to answer': 'Préfère ne pas répondre'
         }
       }
     },
@@ -46,18 +46,18 @@ export default defineInstrument({
       },
       options: {
         en: {
-          'once a day or more': 'once a day or more',
+          'once a day or more': 'Once a day or more',
           '2 - 6 times': '2 - 6 times',
-          once: 'once',
-          'not at all': 'not at all',
-          'prefer not to answer': 'prefer not to answer'
+          once: 'Once',
+          'not at all': 'Not at all',
+          'prefer not to answer': 'Prefer not to answer'
         },
         fr: {
-          'once a day or more': 'une fois par jour ou plus',
-          '2 - 6 times': 'de deux à six',
-          once: 'une',
-          'not at all': 'aucune',
-          'prefer not to answer': 'préfère ne pas répondre'
+          'once a day or more': 'Une fois par jour ou plus',
+          '2 - 6 times': 'De deux à six',
+          once: 'Une',
+          'not at all': 'Aucune',
+          'prefer not to answer': 'Préfère ne pas répondre'
         }
       }
     },
@@ -70,18 +70,18 @@ export default defineInstrument({
       },
       options: {
         en: {
-          'once a day or more': 'once a day or more',
+          'once a day or more': 'Once a day or more',
           '2 - 6 times': '2 - 6 times',
-          once: 'once',
-          'not at all': 'not at all',
-          'prefer not to answer': 'prefer not to answer'
+          once: 'Once',
+          'not at all': 'Not at all',
+          'prefer not to answer': 'Prefer not to answer'
         },
         fr: {
-          'once a day or more': 'une fois par jour ou plus',
-          '2 - 6 times': 'de deux à six',
-          once: 'une',
-          'not at all': 'aucune',
-          'prefer not to answer': 'préfère ne pas répondre'
+          'once a day or more': 'Une fois par jour ou plus',
+          '2 - 6 times': 'De deux à six',
+          once: 'Une',
+          'not at all': 'Aucune',
+          'prefer not to answer': 'Préfère ne pas répondre'
         }
       }
     },
@@ -94,14 +94,14 @@ export default defineInstrument({
       },
       options: {
         en: {
-          yes: 'yes',
-          no: 'no',
-          'prefer not to answer': 'prefer not to answer'
+          yes: 'Yes',
+          no: 'No',
+          'prefer not to answer': 'Prefer not to answer'
         },
         fr: {
-          yes: 'oui',
-          no: 'non',
-          'prefer not to answer': 'préfère ne pas répondre'
+          yes: 'Oui',
+          no: 'Non',
+          'prefer not to answer': 'Préfère ne pas répondre'
         }
       }
     },
@@ -114,16 +114,16 @@ export default defineInstrument({
       },
       options: {
         en: {
-          'quite often': 'quite often',
-          sometimes: 'sometimes',
-          'almost never': 'almost never',
-          'prefer not to answer': 'prefer not to answer'
+          'quite often': 'Quite often',
+          sometimes: 'Sometimes',
+          'almost never': 'Almost never',
+          'prefer not to answer': 'Prefer not to answer'
         },
         fr: {
-          'quite often': 'assez souvent',
-          sometimes: 'quelquefois',
-          'almost never': 'presque jamais',
-          'prefer not to answer': 'préfère ne pas répondre'
+          'quite often': 'Assez souvent',
+          sometimes: 'Quelquefois',
+          'almost never': 'Presque jamais',
+          'prefer not to answer': 'Préfère ne pas répondre'
         }
       }
     },
@@ -136,14 +136,14 @@ export default defineInstrument({
       },
       options: {
         en: {
-          'as often as wants to': 'as often as wants to',
-          'somewhat unhappy about how little': 'somewhat unhappy about how little',
-          'prefer not to answer': 'prefer not to answer'
+          'as often as wants to': 'As often as wants to',
+          'somewhat unhappy about how little': 'Somewhat unhappy about how little',
+          'prefer not to answer': 'Prefer not to answer'
         },
         fr: {
-          'as often as wants to': 'aussi souvent que je le désire',
-          'somewhat unhappy about how little': 'plutôt insatisfait(e) que je les vois rarement',
-          'prefer not to answer': 'préfère ne pas répondre'
+          'as often as wants to': 'Aussi souvent que je le désire',
+          'somewhat unhappy about how little': 'Plutôt insatisfait(e) que je les vois rarement',
+          'prefer not to answer': 'Préfère ne pas répondre'
         }
       }
     },
@@ -156,14 +156,14 @@ export default defineInstrument({
       },
       options: {
         en: {
-          yes: 'yes',
-          'no one willing and able': 'no one willing and able',
-          'prefer not to answer': 'prefer not to answer'
+          yes: 'Yes',
+          'no one willing and able': 'No one willing and able',
+          'prefer not to answer': 'Prefer not to answer'
         },
         fr: {
-          yes: 'oui',
-          'no one willing and able': "il n'y a personne qui disposerait ou qui soit en mesure de m'aider",
-          'prefer not to answer': 'préfère ne pas répondre'
+          yes: 'Oui',
+          'no one willing and able': "Il n'y a personne qui disposerait ou qui soit en mesure de m'aider",
+          'prefer not to answer': 'Préfère ne pas répondre'
         }
       }
     },
@@ -187,16 +187,16 @@ export default defineInstrument({
                     'Someone who would take care of you for a short time (a few weeks to six months)',
                   'Someone who would help you now and then (taking you to the doctor, fixing lunch, etc.)':
                     'Someone who would help you now and then (taking you to the doctor, fixing lunch, etc.)',
-                  'prefer not to answer': 'prefer not to answer'
+                  'prefer not to answer': 'Prefer not to answer'
                 },
                 fr: {
                   'Someone who would take care of you indefinitely (as long as needed)':
-                    "une personne qui prendrait soin de vous indéfiniment (aussi longtemps qu'il le faudrait)",
+                    "Une personne qui prendrait soin de vous indéfiniment (aussi longtemps qu'il le faudrait)",
                   'Someone who would take care of you for a short time (a few weeks to six months)':
-                    'une personne qui prendrait soin de vous pendant une courte période (de quelques semaines à six mois)',
+                    'Une personne qui prendrait soin de vous pendant une courte période (de quelques semaines à six mois)',
                   'Someone who would help you now and then (taking you to the doctor, fixing lunch, etc.)':
-                    'une personne qui vous aiderait de temps en temps (qui vous conduirait chez le médecin ou vous ferait à déjeuner, etc.)',
-                  'prefer not to answer': 'préfère ne pas répondre'
+                    'Une personne qui vous aiderait de temps en temps (qui vous conduirait chez le médecin ou vous ferait à déjeuner, etc.)',
+                  'prefer not to answer': 'Préfère ne pas répondre'
                 }
               }
             }
