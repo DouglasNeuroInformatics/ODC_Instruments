@@ -3,24 +3,30 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.6.3",
+  "packageManager": "pnpm@10.34.3",
   "license": "UNLICENSED",
   "scripts": {
-    "format": "prettier --write lib",
-    "lint": "tsc && eslint --fix lib",
+    "check": "pnpm lint:check && pnpm format:check && pnpm check-editions",
+    "check-editions": "node scripts/check-edition-bumps.ts",
+    "check-template": "node scripts/check-template-sync.ts",
+    "format": "prettier --write lib scripts",
+    "format:check": "prettier --check lib scripts",
+    "lint": "tsc && eslint --fix lib scripts",
+    "lint:check": "tsc && eslint lib scripts",
     "prepare": "husky"
   },
   "dependencies": {
-    "@opendatacapture/runtime-v1": "^2.5.0"
+    "@opendatacapture/runtime-v1": "^2.6.0"
   },
   "devDependencies": {
     "@douglasneuroinformatics/eslint-config": "^6.0.0",
     "@douglasneuroinformatics/prettier-config": "^0.3.0",
     "@douglasneuroinformatics/tsconfig": "^2.0.0",
-    "@opendatacapture/instrument-guidelines": "^2.5.0",
-    "@opendatacapture/playground-url": "^2.3.1",
-    "@opendatacapture/serve-instrument": "^2.5.0",
-    "@types/node": "^22.x",
+    "@opendatacapture/instrument-guidelines": "^2.6.0",
+    "@opendatacapture/playground-url": "^2.6.0",
+    "@opendatacapture/serve-instrument": "^2.6.0",
+    "@types/node": "^24.x",
+    "@types/react": "19.x",
     "eslint": "^9.22.0",
     "husky": "^9.1.7",
     "prettier": "^3.8.3",

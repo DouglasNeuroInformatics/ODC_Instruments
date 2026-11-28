@@ -4,7 +4,7 @@ A collection of **open-access** data-collection instruments for the [Open Data C
 
 ## What is an instrument?
 
-An instrument is the unit of data collection in Open Data Capture — it defines what the user sees, what data is produced, and how that data is validated. See the [instruments documentation](https://opendatacapture.org/en/docs/concepts/instruments/) for a full overview. For guidance on authoring instruments in this repo, see [`AGENTS.md`](./AGENTS.md).
+An instrument is the unit of data collection in Open Data Capture — it defines what the user sees, what data is produced, and how that data is validated. See the [instruments documentation](https://opendatacapture.org/en/docs/concepts/instruments/) for a full overview. 
 
 ## Installation
 
@@ -14,11 +14,7 @@ This repo uses [pnpm](https://pnpm.io). Install dependencies with:
 pnpm install
 ```
 
-You can setup an agents file with the following command:
-
-```sh
-pnpm exec instrument-guidelines --file CLAUDE.md
-```
+The instructions for coding agents are in [`AGENTS.md`](./AGENTS.md). After `pnpm install`, `CLAUDE.md` also loads the instrument specification from `@opendatacapture/instrument-guidelines`.
 
 ## Serving an instrument
 
